@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سفيان - مطور مواقع</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      opacity: 0; /* بداية مخفي */
+      transition: opacity 1s ease-in-out; /* تأثير تدريجي */
+    }
+    body.loaded {
+      opacity: 1; /* بعد التحميل يظهر */
+    }
+    header, footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      margin-top: 10px;
+      border-top:1px solid gray;
+    }
+    nav button {
+   
+      margin: 5px;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border: none;
+      background-color: #ff5722;
+      color: white;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    nav button:hover {
+      background-color: #e64a19;
+    }
+    section {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+      
+    }
+    .services, .pricing {
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 2em;
+      padding: 1.5em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         border-bottom:1px solid gray;
+    }
+    
+    
+    
+    .services, .pricing:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    form button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 0.7em 2em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #1976d2;
+    }
+    .service-links {
+      margin-top: 10em;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      
+    }
+    .service-links a {
+      background-color: #4caf50;
+      color: white;
+      padding: 0.6em 1.2em;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .service-links a:hover {
+      background-color: #388e3c;
+    }
+    @media (max-width: 768px) {
+      section {
+        padding: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">سفيان - مطور مواقع</h1>
+    <nav>
+      <button onclick="switchLang('ar')">العربية</button>
+      <button onclick="switchLang('en')">English</button>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2 id="aboutTitle">من أنا</h2>
+    <p id="aboutText">أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.</p>
+  </section>
+
+  <section class="services">
+    <h2 id="servicesTitle">خدماتي</h2>
+    <ul id="servicesList">
+      <li>تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ</li>
+      <li>html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql</li>
+      <li>عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)</li>
+      <li>ثمن الخدمة: 20 OES
+       <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank">للطلب إضغط هنا </a></li>
+    </ul>
+    
+    
+    
+    <div class="service-links">
+      <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank">صفحتي على Fiverr</a>
+      <a id="githubLink" href="https://github.com/yourusername" target="_blank">معرض المشاريع على GitHub</a>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <h2 id="contactTitle">نموذج تواصل</h2>
+    <form>
+      <input type="text" id="nameInput" placeholder="الاسم" />
+      <input type="email" id="emailInput" placeholder="البريد الإلكتروني" />
+      <textarea rows="5" id="messageInput" placeholder="رسالتك (لن يتم إرسالها فعليًا)"></textarea>
+      <button type="button" id="sendButton">إرسال</button>
+    </form>
+  </section>
+
+  <footer>
+    <p id="footerText">© 2025 سفيان. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script>
+    const texts = {
+      ar: {
+        dir: "rtl",
+        title: "سفيان - مطور مواقع",
+        aboutTitle: "من أنا",
+        aboutText: "أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.",
+        servicesTitle: "خدماتي",
+        servicesList: [
+          "تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ",
+          "html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql",
+          "عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)",
+          "ثمن الخدمة: 20 OES"
+        ],
+        links: {
+        fiverr: "Order Here",
+          fiverr: "صفحتي على Fiverr",
+          github: "معرض المشاريع على GitHub"
+        },
+        contactTitle: "نموذج تواصل",
+        footerText: "© 2025 سفيان. جميع الحقوق محفوظة.",
+        placeholders: {
+          name: "الاسم",
+          email: "البريد الإلكتروني",
+          message: "رسالتك (لن يتم إرسالها فعليًا)",
+          send: "إرسال"
+        }
+      },
+      en: {
+        dir: "ltr",
+        title: "Soufiane - Web Developer",
+        aboutTitle: "About Me",
+        aboutText: "I'm Soufiane, a web developer from Morocco offering professional website design services at affordable prices.",
+        servicesTitle: "My Services",
+        servicesList: [
+          "Professional responsive website design: mobile, corporate, personal, multiple pages, etc.",
+          "html, css, html5, css3, bootstrap, javascript, node.js, typescript, php, mysql",
+          "More than 6 pages including (Home, About Us, Services, Contact, Portfolio... as you choose)",
+          "Price: 20 OES"
+        ],
+        links: {
+          fiverr: "My Fiverr Page",
+          github: "My GitHub Portfolio"
+        },
+        contactTitle: "Contact Form",
+        footerText: "© 2025 Soufiane. All rights reserved.",
+        placeholders: {
+          name: "Your Name",
+          email: "Your Email",
+          message: "Your Message (not actually sent)",
+          send: "Send"
+        }
+      }
+    };
+
+    function switchLang(lang) {
+      const t = texts[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = t.dir;
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('aboutTitle').textContent = t.aboutTitle;
+      document.getElementById('aboutText').textContent = t.aboutText;
+      document.getElementById('servicesTitle').textContent = t.servicesTitle;
+      document.getElementById('servicesList').innerHTML = t.servicesList.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('fiverrLink').textContent = t.links.fiverr;
+      document.getElementById('githubLink').textContent = t.links.github;
+      document.getElementById('contactTitle').textContent = t.contactTitle;
+      document.getElementById('footerText').textContent = t.footerText;
+
+      // Update form placeholders
+      document.getElementById('nameInput').placeholder = t.placeholders.name;
+      document.getElementById('emailInput').placeholder = t.placeholders.email;
+      document.getElementById('messageInput').placeholder = t.placeholders.message;
+      document.getElementById('sendButton').textContent = t.placeholders.send;
+    }
+
+    // تأثير تحميل الصفحة سلس ومرن
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>
