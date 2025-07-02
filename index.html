@@ -114,6 +114,8 @@
   </style>
 </head>
 <body>
+/head>
+<body>
   <header>
     <h1 id="title">سفيان - مطور مواقع</h1>
     <nav>
@@ -130,15 +132,9 @@
   <section class="services">
     <h2 id="servicesTitle">خدماتي</h2>
     <ul id="servicesList">
-      <li>تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ</li>
-      <li>html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql</li>
-      <li>عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)</li>
-      <li>ثمن الخدمة: 20 OES
-       <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank">للطلب إضغط هنا </a></li>
+      <!-- القائمة ستبنى ديناميكياً -->
     </ul>
-    
-    
-    
+
     <div class="service-links">
       <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank">صفحتي على Fiverr</a>
       <a id="githubLink" href="https://github.com/yourusername" target="_blank">معرض المشاريع على GitHub</a>
@@ -160,111 +156,122 @@
   </footer>
 
   <script>
-  const texts = {
-  ar: {
-    dir: "rtl",
-    title: "سفيان - مطور مواقع",
-    aboutTitle: "من أنا",
-    aboutText: "أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.",
-    servicesTitle: "خدماتي",
-    servicesList: [
-      "تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ",
-      "html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql",
-      "عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)",
-      "ثمن الخدمة: 20 OES " // لاحظ ترك مسافة في النهاية
-    ],
-    orderLinkText: "للطلب إضغط هنا",
-    orderLinkHref: "https://fiverr.com/yourusername",
-    links: {
-      fiverr: "صفحتي على Fiverr",
-      github: "معرض المشاريع على GitHub"
-    },
-    contactTitle: "نموذج تواصل",
-    footerText: "© 2025 سفيان. جميع الحقوق محفوظة.",
-    placeholders: {
-      name: "الاسم",
-      email: "البريد الإلكتروني",
-      message: "رسالتك (لن يتم إرسالها فعليًا)",
-      send: "إرسال"
+    const texts = {
+      ar: {
+        dir: "rtl",
+        title: "سفيان - مطور مواقع",
+        aboutTitle: "من أنا",
+        aboutText: "أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.",
+        servicesTitle: "خدماتي",
+        servicesList: [
+          "تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ",
+          "html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql",
+          "عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)",
+          "ثمن الخدمة: 20 OES "
+        ],
+        orderLinkText: "للطلب إضغط هنا",
+        orderLinkHref: "https://fiverr.com/yourusername",
+        links: {
+          fiverr: "صفحتي على Fiverr",
+          github: "معرض المشاريع على GitHub"
+        },
+        contactTitle: "نموذج تواصل",
+        footerText: "© 2025 سفيان. جميع الحقوق محفوظة.",
+        placeholders: {
+          name: "الاسم",
+          email: "البريد الإلكتروني",
+          message: "رسالتك (لن يتم إرسالها فعليًا)",
+          send: "إرسال"
+        }
+      },
+      en: {
+        dir: "ltr",
+        title: "Soufiane - Web Developer",
+        aboutTitle: "About Me",
+        aboutText: "I'm Soufiane, a web developer from Morocco offering professional website design services at affordable prices.",
+        servicesTitle: "My Services",
+        servicesList: [
+          "Professional responsive website design: mobile, corporate, personal, multiple pages, etc.",
+          "html, css, html5, css3, bootstrap, javascript, node.js, typescript, php, mysql",
+          "More than 6 pages including (Home, About Us, Services, Contact, Portfolio... as you choose)",
+          "Price: 20 OES "
+        ],
+        orderLinkText: "Order Here",
+        orderLinkHref: "https://fiverr.com/yourusername",
+        links: {
+          fiverr: "My Fiverr Page",
+          github: "My GitHub Portfolio"
+        },
+        contactTitle: "Contact Form",
+        footerText: "© 2025 Soufiane. All rights reserved.",
+        placeholders: {
+          name: "Your Name",
+          email: "Your Email",
+          message: "Your Message (not actually sent)",
+          send: "Send"
+        }
+      }
+    };
+
+    function switchLang(lang) {
+      const t = texts[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = t.dir;
+
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('aboutTitle').textContent = t.aboutTitle;
+      document.getElementById('aboutText').textContent = t.aboutText;
+      document.getElementById('servicesTitle').textContent = t.servicesTitle;
+
+      // بناء قائمة الخدمات مع رابط الطلب في العنصر الأخير
+      const servicesListEl = document.getElementById('servicesList');
+      servicesListEl.innerHTML = '';
+      t.servicesList.forEach((item, index) => {
+        const li = document.createElement('li');
+        if (index === t.servicesList.length - 1) {
+          li.innerHTML = `${item}<a id="orderLink" href="${t.orderLinkHref}" target="_blank">${t.orderLinkText}</a>`;
+        } else {
+          li.textContent = item;
+        }
+        servicesListEl.appendChild(li);
+      });
+
+      // تحديث رابط الطلب (داخل الخدمات)
+      const orderLinkEl = document.getElementById('orderLink');
+      if(orderLinkEl) {
+        orderLinkEl.textContent = t.orderLinkText;
+        orderLinkEl.href = t.orderLinkHref;
+      }
+
+      // تحديث رابط صفحة Fiverr في قسم الروابط
+      const fiverrLinkEl = document.getElementById('fiverrLink');
+      fiverrLinkEl.textContent = t.links.fiverr;
+      fiverrLinkEl.href = t.orderLinkHref;
+
+      // تحديث رابط GitHub
+      const githubLinkEl = document.getElementById('githubLink');
+      githubLinkEl.textContent = t.links.github;
+
+      document.getElementById('contactTitle').textContent = t.contactTitle;
+      document.getElementById('footerText').textContent = t.footerText;
+
+      // تحديث أماكن الحقول في نموذج التواصل
+      document.getElementById('nameInput').placeholder = t.placeholders.name;
+      document.getElementById('emailInput').placeholder = t.placeholders.email;
+      document.getElementById('messageInput').placeholder = t.placeholders.message;
+      document.getElementById('sendButton').textContent = t.placeholders.send;
     }
-  },
-  en: {
-    dir: "ltr",
-    title: "Soufiane - Web Developer",
-    aboutTitle: "About Me",
-    aboutText: "I'm Soufiane, a web developer from Morocco offering professional website design services at affordable prices.",
-    servicesTitle: "My Services",
-    servicesList: [
-      "Professional responsive website design: mobile, corporate, personal, multiple pages, etc.",
-      "html, css, html5, css3, bootstrap, javascript, node.js, typescript, php, mysql",
-      "More than 6 pages including (Home, About Us, Services, Contact, Portfolio... as you choose)",
-      "Price: 20 OES "
-    ],
-    orderLinkText: "Order Here",
-    orderLinkHref: "https://fiverr.com/yourusername",
-    links: {
-      fiverr: "My Fiverr Page",
-      github: "My GitHub Portfolio"
-    },
-    contactTitle: "Contact Form",
-    footerText: "© 2025 Soufiane. All rights reserved.",
-    placeholders: {
-      name: "Your Name",
-      email: "Your Email",
-      message: "Your Message (not actually sent)",
-      send: "Send"
-    }
-  }
-};
 
-function switchLang(lang) {
-  const t = texts[lang];
-  document.documentElement.lang = lang;
-  document.documentElement.dir = t.dir;
-  document.getElementById('title').textContent = t.title;
-  document.getElementById('aboutTitle').textContent = t.aboutTitle;
-  document.getElementById('aboutText').textContent = t.aboutText;
-  document.getElementById('servicesTitle').textContent = t.servicesTitle;
-
-  // بناء القائمة مع بقاء رابط الطلب منفصل داخل عنصر li الأخير
-  const servicesListEl = document.getElementById('servicesList');
-  servicesListEl.innerHTML = '';
-  t.servicesList.forEach((item, index) => {
-    if(index === t.servicesList.length - 1) {
-      // العنصر الأخير يحتوي على نص + رابط
-      const li = document.createElement('li');
-      li.innerHTML = `${item}<a id="orderLink" href="${t.orderLinkHref}" target="_blank">${t.orderLinkText}</a>`;
-      servicesListEl.appendChild(li);
-    } else {
-      // بقية العناصر عادية
-      const li = document.createElement('li');
-      li.textContent = item;
-      servicesListEl.appendChild(li);
-    }
-  });
-
-  document.getElementById('fiverrLink').textContent = t.links.fiverr;
-  document.getElementById('fiverrLink').href = t.orderLinkHref;
-  document.getElementById('githubLink').textContent = t.links.github;
-  document.getElementById('contactTitle').textContent = t.contactTitle;
-  document.getElementById('footerText').textContent = t.footerText;
-
-  // تحديث أماكن الحقول
-  document.getElementById('nameInput').placeholder = t.placeholders.name;
-  document.getElementById('emailInput').placeholder = t.placeholders.email;
-  document.getElementById('messageInput').placeholder = t.placeholders.message;
-  document.getElementById('sendButton').textContent = t.placeholders.send;
-}
-
-// تفعيل اللغة الافتراضية عند تحميل الصفحة
-window.addEventListener('load', () => {
-  switchLang('ar'); // أو 'en' حسب ما تريد كافتراضي
-  document.body.classList.add('loaded');
-});
-    // تأثير تحميل الصفحة سلس ومرن
+    // تفعيل اللغة العربية افتراضيًا عند تحميل الصفحة
     window.addEventListener('load', () => {
+      switchLang('ar'); 
       document.body.classList.add('loaded');
     });
   </script>
 </body>
 </html>
+
+
+
+  
+
