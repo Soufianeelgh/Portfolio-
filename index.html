@@ -106,6 +106,43 @@
     .service-links a:hover {
       background-color: #388e3c;
     }
+
+    .portfolio {
+  padding: 2rem;
+  text-align: center;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.project img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.project p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
     @media (max-width: 768px) {
       section {
         padding: 1em;
@@ -139,6 +176,17 @@
       <a id="githubLink" href="https://github.com/yourusername" target="_blank">معرض المشاريع على GitHub</a>
     </div>
   </section>
+  <section class="portfolio">
+  <h2 id="portfolioTitle">معرض الأعمال</h2>
+  <div class="projects">
+    <div class="project">
+      <img src="tabkh.jpg" alt="مشروع موقع طبخ" width="300">
+      <p>موقع وصفات طبخ</p>
+      <a href="https://soufianeelgh.github.io/Tabkh/" target="_blank">زيارة المشروع</a>
+    </div>
+
+  </div>
+</section>
 
   <section class="pricing">
     <h2 id="contactTitle">نموذج تواصل</h2>
@@ -174,6 +222,8 @@
           fiverr: "صفحتي على Fiverr",
           github: "معرض المشاريع على GitHub"
         },
+        portfolioTitle: "معرض الأعمال",
+        
         contactTitle: "نموذج تواصل",
         footerText: "© 2025 سفيان. جميع الحقوق محفوظة.",
         placeholders: {
@@ -201,6 +251,8 @@
           fiverr: "My Fiverr Page",
           github: "My GitHub Portfolio"
         },
+             portfolioTitle: "My Portfolio",
+        
         contactTitle: "Contact Form",
         footerText: "© 2025 Soufiane. All rights reserved.",
         placeholders: {
@@ -221,7 +273,7 @@
       document.getElementById('aboutTitle').textContent = t.aboutTitle;
       document.getElementById('aboutText').textContent = t.aboutText;
       document.getElementById('servicesTitle').textContent = t.servicesTitle;
-
+document.getElementById('portfolioTitle').textContent = t.portfolioTitle;
       // بناء قائمة الخدمات مع رابط الطلب في العنصر الأخير
       const servicesListEl = document.getElementById('servicesList');
       servicesListEl.innerHTML = '';
