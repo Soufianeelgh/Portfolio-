@@ -252,11 +252,58 @@
         servicesTitle: "خدماتي",
         portfolioTitle: "معرض الأعمال",
         services: [
-          "تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ",
-          "html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql",
-          "عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)",
-          "ثمن الخدمة: 20 OES"
-        ],
+  {
+    title: "حلول متكاملة لتصميم وتطوير المواقع",
+    description: "خدمة شاملة تغطي كل مراحل بناء موقع احترافي من التصميم إلى الدعم الفني",
+    details: [
+      "تصميم متجاوب لجميع الأجهزة (جوال، تابلت، كمبيوتر)",
+      "تطوير بلغة واحدة حسب الطلب (PHP أو Node.js)",
+      "لوحة تحكم لإدارة المحتوى بسهولة",
+      "قاعدة بيانات متكاملة",
+      "استضافة مجانية لمدة شهر",
+      "دعم فني مجاني لمدة أسبوع بعد التسليم"
+    ],
+    duration: "20 إلى 40 يوم عمل",
+    note: "السعر يشمل المشروع كاملاً دون أي تكاليف إضافية",
+    price: "21 OES (حوالي 945$)"
+  },
+  {
+    title: "تطوير وبرمجة المواقع",
+    description: "برمجة وتنفيذ المواقع باستخدام أحدث التقنيات",
+    technologies: [
+      "HTML5, CSS3, JavaScript (ES6+)",
+      "Bootstrap, Tailwind CSS",
+      "React.js, Vue.js (لللوحات الإدارية)",
+      "Node.js, Express (للخوادم)",
+      "PHP, MySQL (للأنظمة الديناميكية)"
+    ],
+    price: "حسب متطلبات المشروع"
+  },
+  {
+    title: "تحسين SEO",
+    description: "تحسين محركات البحث لظهور موقعك في النتائج الأولى",
+    features: [
+      "تحليل الكلمات المفتاحية",
+      "تحسين هيكل الموقع",
+      "تحسين سرعة التحميل",
+      "تحسين محتوى الصفحات"
+    ],
+    price: "6 OES + 200 euro"
+  },
+  {
+    title: "صيانة وتحديث المواقع",
+    description: "خدمات الصيانة الدورية والتحديثات الأمنية",
+    includes: [
+      "تحديثات أمنية دورية",
+      "إصلاح الأخطاء البرمجية",
+      "إضافة مميزات جديدة",
+      "نسخ احتياطي يومي",
+      "دعم فني مستمر"
+    ],
+    price: "اشتراكات شهرية تبدأ من 6 OES + 200 euro"
+  }
+],
+
         links: {
           fiverr: "صفحتي على Fiverr",
           github: "معرض المشاريع على GitHub",
@@ -331,10 +378,25 @@
       DOM.servicesTitle.textContent = servicesTitle;
       DOM.portfolioTitle.textContent = portfolioTitle;
       
-      DOM.servicesList.innerHTML = services.map((service, index) => 
-        `<li>${service}${index === services.length - 1 ? 
-          `<a href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer"> ${links.order}</a>` : ''}</li>`
-      ).join('');
+     DOM.servicesList.innerHTML = Array.isArray(services) && typeof services[0] === 'object'
+  ? services.map(service => `
+      <li style="margin-bottom: 1.5em;">
+        <strong>${service.title}</strong><br>
+        <em>${service.description}</em>
+        ${service.details ? `<ul>${service.details.map(d => `<li>${d}</li>`).join('')}</ul>` : ''}
+        ${service.technologies ? `<ul>${service.technologies.map(t => `<li>${t}</li>`).join('')}</ul>` : ''}
+        ${service.features ? `<ul>${service.features.map(f => `<li>${f}</li>`).join('')}</ul>` : ''}
+        ${service.includes ? `<ul>${service.includes.map(i => `<li>${i}</li>`).join('')}</ul>` : ''}
+        ${service.duration ? `<p>⏳ <strong>مدة التنفيذ:</strong> ${service.duration}</p>` : ''}
+        ${service.note ? `<p>💡 <strong>ملاحظة:</strong> ${service.note}</p>` : ''}
+        <p>💰 <strong>السعر:</strong> ${service.price}</p>
+      </li>
+    `).join('')
+  : services.map((service, index) => 
+      `<li>${service}${index === services.length - 1 ? 
+        `<a href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer"> ${links.order}</a>` : ''}</li>`
+    ).join('');
+
       
       DOM.fiverrLink.textContent = links.fiverr;
       DOM.githubLink.textContent = links.github;
