@@ -1,156 +1,198 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>soufian elghachi  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="موقع سفيان الغاشي - مطور مواقع ويب محترف">
+  <title>سفيان الغاشي - مطور مواقع</title>
   <style>
+    :root {
+      --primary-color: #ff5722;
+      --primary-hover: #e64a19;
+      --secondary-color: #2196f3;
+      --secondary-hover: #1976d2;
+      --success-color: #4caf50;
+      --success-hover: #388e3c;
+      --dark-color: #222;
+      --light-color: #f9f9f9;
+      --white: #fff;
+      --gray: #ccc;
+      --shadow: 0 0 10px rgba(0,0,0,0.05);
+      --transition: all 0.3s ease;
+    }
+    
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
+      background-color: var(--light-color);
       color: #333;
-      opacity: 0; /* بداية مخفي */
-      transition: opacity 1s ease-in-out; /* تأثير تدريجي */
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
+    
     body.loaded {
-      opacity: 1; /* بعد التحميل يظهر */
+      opacity: 1;
     }
+    
     header, footer {
-      background-color: #222;
-      color: #fff;
+      background-color: var(--dark-color);
+      color: var(--white);
       text-align: center;
       padding: 1em;
     }
+    
     header h1 {
       margin: 0;
     }
+    
     nav {
       margin-top: 10px;
-      border-top:1px solid gray;
+      border-top: 1px solid var(--gray);
     }
-    nav button {
-   
+    
+    button {
       margin: 5px;
       padding: 0.5em 1em;
       cursor: pointer;
       border: none;
-      background-color: #ff5722;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--white);
       border-radius: 4px;
-      transition: background-color 0.3s ease;
+      transition: var(--transition);
     }
-    nav button:hover {
-      background-color: #e64a19;
+    
+    button:hover {
+      background-color: var(--primary-hover);
     }
+    
     section {
       padding: 2em;
       max-width: 1000px;
       margin: auto;
-      
     }
-    .services, .pricing {
-      background-color: #fff;
+    
+    .card {
+      background-color: var(--white);
       border-radius: 8px;
       margin-bottom: 2em;
       padding: 1.5em;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-         border-bottom:1px solid gray;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-bottom: 1px solid var(--gray);
     }
     
-    
-    
-    .services, .pricing:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
+    
     form input, form textarea {
       width: 100%;
       margin-bottom: 1em;
       padding: 0.8em;
-      border: 1px solid #ccc;
+      border: 1px solid var(--gray);
       border-radius: 4px;
       box-sizing: border-box;
       font-size: 1rem;
     }
+    
     form button {
-      background-color: #2196f3;
-      color: white;
+      background-color: var(--secondary-color);
+      color: var(--white);
       border: none;
       padding: 0.7em 2em;
       border-radius: 4px;
       cursor: pointer;
       font-size: 1rem;
-      transition: background-color 0.3s ease;
+      transition: var(--transition);
     }
+    
     form button:hover {
-      background-color: #1976d2;
+      background-color: var(--secondary-hover);
     }
+    
     .service-links {
-      margin-top: 10em;
+      margin-top: 2em;
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      
     }
+    
     .service-links a {
-      background-color: #4caf50;
-      color: white;
+      background-color: var(--success-color);
+      color: var(--white);
       padding: 0.6em 1.2em;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: var(--transition);
     }
+    
     .service-links a:hover {
-      background-color: #388e3c;
+      background-color: var(--success-hover);
     }
 
     .portfolio {
-  padding: 2rem;
-  text-align: center;
-}
+      padding: 2rem;
+      text-align: center;
+    }
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-.project {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+    .project {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
 
-.project img {
-  width: 100%;
-  border-radius: 10px;
-}
+    .project:hover {
+      transform: translateY(-5px);
+    }
 
-.project p {
-  margin-top: 10px;
-  font-weight: bold;
-}
+    .project img {
+      width: 100%;
+      border-radius: 10px;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
 
-.project a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-}
+    .project p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .project a {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+    
     @media (max-width: 768px) {
       section {
         padding: 1em;
       }
+      
+      .service-links {
+        justify-content: center;
+      }
     }
   </style>
 </head>
-<body>
 <body>
   <header>
     <h1 id="title">سفيان - مطور مواقع</h1>
@@ -160,41 +202,39 @@
     </nav>
   </header>
 
-  <section class="about">
+  <section class="about card">
     <h2 id="aboutTitle">من أنا</h2>
     <p id="aboutText">أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.</p>
   </section>
 
-  <section class="services">
+  <section class="services card">
     <h2 id="servicesTitle">خدماتي</h2>
-    <ul id="servicesList">
-      <!-- القائمة ستبنى ديناميكياً -->
-    </ul>
+    <ul id="servicesList"></ul>
 
     <div class="service-links">
-      <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank">صفحتي على Fiverr</a>
-      <a id="githubLink" href="https://github.com/yourusername" target="_blank">معرض المشاريع على GitHub</a>
+      <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer">صفحتي على Fiverr</a>
+      <a id="githubLink" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">معرض المشاريع على GitHub</a>
     </div>
   </section>
-  <section class="portfolio">
-  <h2 id="portfolioTitle">معرض الأعمال</h2>
-  <div class="projects">
-    <div class="project">
-      <img src=" InShot_20250703_002747874.jpg " alt="مشروع موقع طبخ" width="300">
-      <p>موقع وصفات طبخ</p>
-      <a href="https://soufianeelgh.github.io/Tabkh/" target="_blank">زيارة المشروع</a>
+  
+  <section class="portfolio card">
+    <h2 id="portfolioTitle">معرض الأعمال</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="InShot_20250703_002747874.jpg" alt="مشروع موقع طبخ" loading="lazy">
+        <p>موقع وصفات طبخ</p>
+        <a href="https://soufianeelgh.github.io/Tabkh/" target="_blank" rel="noopener noreferrer">زيارة المشروع</a>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-  <section class="pricing">
+  <section class="contact card">
     <h2 id="contactTitle">نموذج تواصل</h2>
-    <form>
-      <input type="text" id="nameInput" placeholder="الاسم" />
-      <input type="email" id="emailInput" placeholder="البريد الإلكتروني" />
-      <textarea rows="5" id="messageInput" placeholder="رسالتك (لن يتم إرسالها فعليًا)"></textarea>
-      <button type="button" id="sendButton">إرسال</button>
+    <form id="contactForm">
+      <input type="text" id="nameInput" placeholder="الاسم" required>
+      <input type="email" id="emailInput" placeholder="البريد الإلكتروني" required>
+      <textarea rows="5" id="messageInput" placeholder="رسالتك" required></textarea>
+      <button type="submit" id="sendButton">إرسال</button>
     </form>
   </section>
 
@@ -203,7 +243,7 @@
   </footer>
 
   <script>
-    const texts = {
+    const content = {
       ar: {
         dir: "rtl",
         title: "سفيان - مطور مواقع",
@@ -211,26 +251,23 @@
         aboutText: "أنا سفيان، مطور ويب من المغرب أقدم خدمات تصميم مواقع احترافية بأسعار مناسبة.",
         servicesTitle: "خدماتي",
         portfolioTitle: "معرض الأعمال",
-        servicesList: [
+        services: [
           "تصميم مواقع احترافية متجاوبة مع الأجهزة: جوال، مواقع شركات، أفراد، صفحات متعددة... إلخ",
           "html، css، html5، css3، bootstrap، javascript، node.js، typescript، php، mysql",
           "عدد الصفحات: أكثر من 6 صفحات تشمل (رئيسية، من نحن، الخدمات، اتصل بنا، معرض... حسب اختيارك)",
-          "ثمن الخدمة: 20 OES "
+          "ثمن الخدمة: 20 OES"
         ],
-        orderLinkText: "للطلب إضغط هنا",
-        orderLinkHref: "https://fiverr.com/yourusername",
         links: {
           fiverr: "صفحتي على Fiverr",
-          github: "معرض المشاريع على GitHub"
+          github: "معرض المشاريع على GitHub",
+          order: "للطلب إضغط هنا"
         },
-        
-        
         contactTitle: "نموذج تواصل",
         footerText: "© 2025 سفيان. جميع الحقوق محفوظة.",
         placeholders: {
           name: "الاسم",
           email: "البريد الإلكتروني",
-          message: "رسالتك (لن يتم إرسالها فعليًا)",
+          message: "رسالتك",
           send: "إرسال"
         }
       },
@@ -240,89 +277,93 @@
         aboutTitle: "About Me",
         aboutText: "I'm Soufiane, a web developer from Morocco offering professional website design services at affordable prices.",
         servicesTitle: "My Services",
-        servicesList: [
+        portfolioTitle: "My Portfolio",
+        services: [
           "Professional responsive website design: mobile, corporate, personal, multiple pages, etc.",
           "html, css, html5, css3, bootstrap, javascript, node.js, typescript, php, mysql",
           "More than 6 pages including (Home, About Us, Services, Contact, Portfolio... as you choose)",
-          "Price: 20 OES "
+          "Price: 20 OES"
         ],
-        orderLinkText: "Order Here",
-        orderLinkHref: "https://fiverr.com/yourusername",
         links: {
           fiverr: "My Fiverr Page",
-          github: "My GitHub Portfolio"
+          github: "My GitHub Portfolio",
+          order: "Order Here"
         },
-             portfolioTitle: "My Portfolio",
-        
         contactTitle: "Contact Form",
         footerText: "© 2025 Soufiane. All rights reserved.",
         placeholders: {
           name: "Your Name",
           email: "Your Email",
-          message: "Your Message (not actually sent)",
+          message: "Your Message",
           send: "Send"
         }
       }
     };
 
-    function switchLang(lang) {
-      const t = texts[lang];
+    const DOM = {
+      title: document.getElementById('title'),
+      aboutTitle: document.getElementById('aboutTitle'),
+      aboutText: document.getElementById('aboutText'),
+      servicesTitle: document.getElementById('servicesTitle'),
+      portfolioTitle: document.getElementById('portfolioTitle'),
+      servicesList: document.getElementById('servicesList'),
+      fiverrLink: document.getElementById('fiverrLink'),
+      githubLink: document.getElementById('githubLink'),
+      contactTitle: document.getElementById('contactTitle'),
+      footerText: document.getElementById('footerText'),
+      nameInput: document.getElementById('nameInput'),
+      emailInput: document.getElementById('emailInput'),
+      messageInput: document.getElementById('messageInput'),
+      sendButton: document.getElementById('sendButton'),
+      contactForm: document.getElementById('contactForm')
+    };
+
+    function renderContent(lang) {
+      const { dir, title, aboutTitle, aboutText, servicesTitle, portfolioTitle, 
+              services, links, contactTitle, footerText, placeholders } = content[lang];
+      
       document.documentElement.lang = lang;
-      document.documentElement.dir = t.dir;
-
-      document.getElementById('title').textContent = t.title;
-      document.getElementById('aboutTitle').textContent = t.aboutTitle;
-      document.getElementById('aboutText').textContent = t.aboutText;
-      document.getElementById('servicesTitle').textContent = t.servicesTitle;
-document.getElementById('portfolioTitle').textContent = t.portfolioTitle;
-      // بناء قائمة الخدمات مع رابط الطلب في العنصر الأخير
-      const servicesListEl = document.getElementById('servicesList');
-      servicesListEl.innerHTML = '';
-      t.servicesList.forEach((item, index) => {
-        const li = document.createElement('li');
-        if (index === t.servicesList.length - 1) {
-          li.innerHTML = `${item}<a id="orderLink" href="${t.orderLinkHref}" target="_blank">${t.orderLinkText}</a>`;
-        } else {
-          li.textContent = item;
-        }
-        servicesListEl.appendChild(li);
-      });
-
-      // تحديث رابط الطلب (داخل الخدمات)
-      const orderLinkEl = document.getElementById('orderLink');
-      if(orderLinkEl) {
-        orderLinkEl.textContent = t.orderLinkText;
-        orderLinkEl.href = t.orderLinkHref;
-      }
-
-      // تحديث رابط صفحة Fiverr في قسم الروابط
-      const fiverrLinkEl = document.getElementById('fiverrLink');
-      fiverrLinkEl.textContent = t.links.fiverr;
-      fiverrLinkEl.href = t.orderLinkHref;
-
-      // تحديث رابط GitHub
-      const githubLinkEl = document.getElementById('githubLink');
-      githubLinkEl.textContent = t.links.github;
-
-      document.getElementById('contactTitle').textContent = t.contactTitle;
-      document.getElementById('footerText').textContent = t.footerText;
-
-      // تحديث أماكن الحقول في نموذج التواصل
-      document.getElementById('nameInput').placeholder = t.placeholders.name;
-      document.getElementById('emailInput').placeholder = t.placeholders.email;
-      document.getElementById('messageInput').placeholder = t.placeholders.message;
-      document.getElementById('sendButton').textContent = t.placeholders.send;
+      document.documentElement.dir = dir;
+      
+      DOM.title.textContent = title;
+      DOM.aboutTitle.textContent = aboutTitle;
+      DOM.aboutText.textContent = aboutText;
+      DOM.servicesTitle.textContent = servicesTitle;
+      DOM.portfolioTitle.textContent = portfolioTitle;
+      
+      DOM.servicesList.innerHTML = services.map((service, index) => 
+        `<li>${service}${index === services.length - 1 ? 
+          `<a href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer"> ${links.order}</a>` : ''}</li>`
+      ).join('');
+      
+      DOM.fiverrLink.textContent = links.fiverr;
+      DOM.githubLink.textContent = links.github;
+      DOM.contactTitle.textContent = contactTitle;
+      DOM.footerText.textContent = footerText;
+      
+      DOM.nameInput.placeholder = placeholders.name;
+      DOM.emailInput.placeholder = placeholders.email;
+      DOM.messageInput.placeholder = placeholders.message;
+      DOM.sendButton.textContent = placeholders.send;
     }
 
-    // تفعيل اللغة العربية افتراضيًا عند تحميل الصفحة
-    window.addEventListener('load', () => {
-      switchLang('ar'); 
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('شكراً لتواصلك! سيتم الرد عليك قريباً.');
+      DOM.contactForm.reset();
+    }
+
+    function init() {
+      renderContent('ar');
+      DOM.contactForm.addEventListener('submit', handleFormSubmit);
       document.body.classList.add('loaded');
-    });
+    }
+
+    window.switchLang = (lang) => renderContent(lang);
+    window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
-
 
 
   
