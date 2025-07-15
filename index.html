@@ -426,6 +426,9 @@
       
      DOM.servicesList.innerHTML = Array.isArray(services) && typeof services[0] === 'object'
   ? services.map(service => `
+  DOM.servicesList.style.direction = dir;
+DOM.servicesList.style.textAlign = dir === "rtl" ? "right" : "left";
+
       <li style="margin-bottom: 1.5em;">
         <strong>${service.title}</strong><br>
         <em>${service.description}</em>
