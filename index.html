@@ -211,6 +211,9 @@
     <ul id="servicesList"></ul>
 
     <div class="service-links">
+       <a id="dealShakerLink" href="https://dealshaker.com/deal/build-a-professional-website-or-online-store-from-scratch--100-oes-payment-F73E754FF9?fbclid=IwY2xjawLige5leHRuA2FlbQIxMQABHkbhGSt4se29WovBujKHTsv1WWSFOgNAIlkUYdM4Z76aGNgHdyzuL7Wv2gzm_aem_PJyvSiqwyiYxeH_QvJf8eQ" 
+         target="_blank" rel="noopener noreferrer" 
+         style="background-color: #ff9800;">للحجز من هنا (DealShaker)</a>
       <a id="fiverrLink" href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer">صفحتي على Fiverr</a>
       <a id="githubLink" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">معرض المشاريع على GitHub</a>
     </div>
@@ -305,6 +308,8 @@
         links: {
           fiverr: "صفحتي على Fiverr",
           github: "معرض المشاريع على GitHub",
+          order: "للطلب إضغط هنا",
+          dealShaker: "للحجز من هنا (DealShaker)",
           order: "للطلب إضغط هنا"
         },
         contactTitle: "نموذج تواصل",
@@ -380,6 +385,8 @@
         links: {
           fiverr: "My Fiverr Page",
           github: "My GitHub Portfolio",
+          order: "Order Here",
+            dealShaker: "Book Now (DealShaker)",
           order: "Order Here"
         },
         contactTitle: "Contact Form",
@@ -450,6 +457,7 @@ function renderContent(lang) {
   DOM.servicesList.style.textAlign = dir === "rtl" ? "right" : "left";
   DOM.fiverrLink.textContent = links.fiverr;
   DOM.githubLink.textContent = links.github;
+  DOM.dealShakerLink.textContent = links.dealShaker;
   DOM.contactTitle.textContent = contactTitle;
   DOM.footerText.textContent = footerText;
   
