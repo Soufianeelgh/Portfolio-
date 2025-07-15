@@ -20,7 +20,32 @@
       --shadow: 0 0 10px rgba(0,0,0,0.05);
       --transition: all 0.2s ease;
     }
-    
+
+
+    #preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--light-color, #f0f0f0); 
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+
+.preloader-box {
+  background-color: var(--gray, #ccc);
+  color: var(--white, #fff);
+  padding: 2em 3em;
+  border-radius: 10px;
+  box-shadow: var(--shadow, 0 2px 10px rgba(0, 0, 0, 0.1));
+  text-align: center;
+  font-size: 1.1rem;
+}
+
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -193,6 +218,12 @@
       }
     }
   </style>
+  <div id="preloader">
+  <div class="preloader-box">
+    <p>جارٍ التحميل...</p>
+  </div>
+</div>
+
 </head>
 <body>
   <header>
@@ -480,7 +511,20 @@ function renderContent(lang) {
 
     window.switchLang = (lang) => renderContent(lang);
     window.addEventListener('DOMContentLoaded', init);
+
+
+
+  window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    preloader.style.opacity = '0';
+    document.body.classList.add('loaded'); 
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 500);
+  });
+
   </script>
+  
 </body>
 </html>
 
