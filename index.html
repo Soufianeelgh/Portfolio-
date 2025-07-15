@@ -442,8 +442,9 @@
       `<li>${service}${index === services.length - 1 ? 
         `<a href="https://fiverr.com/yourusername" target="_blank" rel="noopener noreferrer"> ${links.order}</a>` : ''}</li>`
     ).join('');
-        
-     
+         
+       DOM.servicesList.style.direction = dir;
+      DOM.servicesList.style.textAlign = dir === "rtl" ? "right" : "left";
       DOM.fiverrLink.textContent = links.fiverr;
       DOM.githubLink.textContent = links.github;
       DOM.contactTitle.textContent = contactTitle;
