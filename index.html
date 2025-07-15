@@ -262,8 +262,7 @@
       "تطوير بلغة واحدة حسب الطلب (PHP أو Node.js)",
       "لوحة تحكم لإدارة المحتوى بسهولة",
       "قاعدة بيانات متكاملة",
-      "استضافة مجانية لمدة شهر",
-      "دعم فني مجاني لمدة أسبوع بعد التسليم"
+      "دعم فني مجاني لمدة أسبوع بعد التسليم",
     ],
     duration: "20 إلى 40 يوم عمل",
     note: "السعر يشمل المشروع كاملاً دون أي تكاليف إضافية باستثناء الاسضافة والاسم",
@@ -336,8 +335,7 @@
       "Development using one language of your choice (PHP or Node.js)",
       "Admin panel for easy content management",
       "Integrated and optimized database",
-      "1 month free hosting",
-      "1 week free technical support after delivery"
+      "1 week free technical support after delivery",
     ],
     duration: "20 to 40 business days",
     note: "The price includes the full project with no additional costs, except for hosting and domain name.",
@@ -417,7 +415,6 @@
       contactForm: document.getElementById('contactForm')
     };
 
-    // تعديل دالة renderContent لتصبح أكثر اتساقًا
 function renderContent(lang) {
   const { dir, title, aboutTitle, aboutText, servicesTitle, portfolioTitle, 
           services, links, contactTitle, footerText, placeholders } = content[lang];
@@ -431,7 +428,6 @@ function renderContent(lang) {
   DOM.servicesTitle.textContent = servicesTitle;
   DOM.portfolioTitle.textContent = portfolioTitle;
   
-  // عرض الخدمات بطريقة متسقة
   DOM.servicesList.innerHTML = services.map(service => {
     if (typeof service === 'string') {
       return `<li>${service}</li>`;
@@ -465,7 +461,6 @@ function renderContent(lang) {
   DOM.messageInput.placeholder = placeholders.message;
   DOM.sendButton.textContent = placeholders.send;
   
-  // إضافة رسالة تأكيد عند تغيير اللغة
   alert(lang === 'ar' ? 'تم تغيير اللغة إلى العربية' : 'Language changed to English');
 }
     
